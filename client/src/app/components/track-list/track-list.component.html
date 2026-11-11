@@ -9,10 +9,10 @@
 				@if(!hideArtist) {
 					<th scope="col">Primary Artist</th>
 				}
+				<!--TODO: Use @if to hide if hideAlbum is true-->
 				@if(!hideAlbum) {
 					<th scope="col">Album</th>
 				}
-				<!--TODO: Use @if to hide if hideAlbum is true-->
 			</tr>
 		</thead>
 		<tbody>
@@ -23,17 +23,17 @@
 				<td>{{i + 1}}</td>
 				<td>
 					<!--TODO: link to the endpoint for that track, display the track's name-->
-					<a [routerLink]="['/track', track.id]">{{track.name}}</a>
+					<a [routerLink]="['/track', track.id]">{{track.name}}</a> <!--index.js-->
 				</td>
 				<!--TODO: display the track's duration-->
-				<td>{{track.durationStr}}</td>
+				<td>{{track.durationStr}}</td> <!--track-data.ts-->
 				<!--TODO: Use @if to hide if hideArtist is true; link to the first artist's endpoint and display the first artist's name-->
 				@if(!hideArtist) {
 					<td><a [routerLink]="['/artist', track.artists[0].id]">{{track.artists[0].name}}</a></td>
 				}
 				<!--TODO: Use @if to hide if hideAlbum is true; link to the album's endpoint and display the album's name-->
 				@if(!hideAlbum) {
-					<td><a [routerLink]="['/album', 'track.album.id']">{{track.album.name}}</a></td>
+					<td><a [routerLink]="['/album', track.album.id]">{{track.album.name}}</a></td>
 				}
 			</tr>
 		}
